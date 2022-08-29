@@ -1,5 +1,5 @@
 //modified by:Juan Sanchez Casanova
-//date:08/23/2022
+//date:08/29/2022
 //
 //author: Gordon Griesel
 //date: Spring 2022
@@ -264,17 +264,42 @@ void physics()
 
 void render()
 {
+
 	//
 	glClear(GL_COLOR_BUFFER_BIT);
 	//Draw box.
 	glPushMatrix();
-	glColor3ub(150, 160, 220);
+//	glColor3ub(150, 160, 220);
 	glTranslatef(g.pos[0], g.pos[1], 0.0f);
 	glBegin(GL_QUADS);
 		glVertex2f(-g.w, -g.w);
 		glVertex2f(-g.w,  g.w);
 		glVertex2f( g.w,  g.w);
 		glVertex2f( g.w, -g.w);
+	if (g.xres <= 200)
+	{
+	    glColor3ub(255, 0, 0);
+	}
+	else if (g.xres > 200 && g.xres <=300)
+	{
+	glColor3ub(205, 92, 92);
+	}
+
+	else if (g.xres > 300 && g.xres <=400)
+	{
+	glColor3ub(190, 92, 92);
+	}
+
+	else if (g.xres > 400 && g.xres <=700)
+	{
+	glColor3ub(150, 160, 220);
+	}
+
+	else if (g.xres > 700)
+	{
+	    glColor3ub(0, 0, 205);
+	}
+
 	glEnd();
 	glPopMatrix();
 }
